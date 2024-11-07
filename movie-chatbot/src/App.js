@@ -38,31 +38,40 @@ function App() {
     };
 
     return (
-        <div className="chat-container">
-            <div className="messages">
-                {messages.map((msg, index) => (
-                    <div key={index} className={msg.sender === 'user' ? 'user-message' : 'bot-message'}>
-                        {msg.text}
-                    </div>
-                ))}
-                <div ref={messagesEndRef} />
-            </div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    placeholder="Ask me about a movie..."
-                />
-                <button type="submit">Send</button>
-            </form>
-            <div className="instructions-box">
-                <h3>Instructions</h3>
-                <p>Type the name of a movie you want to know about.</p>
-                <p>Example: <strong>The Shawshank Redemption</strong></p>
-                <p>Click "Send" to get details about the movie!</p>
-            </div>
-        </div>
+      <div className="App">
+          <div className="chat-container">
+              <div className="messages">
+                  {messages.map((msg, index) => (
+                      <div key={index} className={msg.sender === 'user' ? 'user-message' : 'bot-message'}>
+                          {msg.text}
+                      </div>
+                  ))}
+                  <div ref={messagesEndRef} />
+              </div>
+              <form onSubmit={handleSubmit}>
+                  <input
+                      type="text"
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      placeholder="Ask me about a movie..."
+                  />
+                  <button type="submit">Send</button>
+              </form>
+              <div className="instructions-box">
+                  <h3>Instructions</h3>
+                  <p>Type the name of a movie you want to know about.</p>
+                  <p>Example: <strong>The Shawshank Redemption</strong></p>
+                  <p>Click "Send" to get details about the movie!</p>
+                  <p>Movie examples: Titanic, Iron Man, Gladiator,Inside Out  </p>
+              </div>
+              <div className="instructions-box">
+                  <h3>Disclaimer</h3>
+                  <p>Esta aplicación fue desarrollada usando la api de peliculas OMDb API, no el LLM y Rag.</p>
+                  <p>Es una solucion simple para poder desarrollar el Front y dar algun grado de usabilidad similar al que se pide en el enunciado</p>
+                  
+              </div>
+          </div>
+      </div>
     );
 }
 
